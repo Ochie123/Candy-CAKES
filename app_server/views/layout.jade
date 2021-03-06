@@ -9,14 +9,18 @@ html
   body
     nav.navbar.fixed-top.navbar-expand-md.navbar-light
       .container
-        a.navbar-brand(href='/') Candy Cakes 
-        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarMain')
+        a.navbar-brand(href='/') Candy Cakes
+              a.nav-link(href='/gifts') Gifts 
+                        a.nav-link(href='/surprise/') Surprise!
+                                a.nav-link(href='/ourAnniversary/') Our Anniversary!
+
+                            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarMain')
           span.navbar-toggler-icon
+           nav.navbar.fixed-top.navbar-expand-md.navbar-light
         #navbarMain.navbar-collapse.collapse
           ul.navbar-nav.mr-auto
             li.nav-item
               a.nav-link(href='/about/') About
-
     .container.content
       block content
 
