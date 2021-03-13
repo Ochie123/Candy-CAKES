@@ -5,13 +5,13 @@ const ctrlGifts = require('../controllers/gifts');
 const ctrlOurAnniversary = require('../controllers/ourAnniversary');
 const ctrlSurprise = require('../controllers/surprise');
 const ctrlOthers = require('../controllers/others');
-/* Location pages. */
+/*Cakes pages. */
 router.get('/', ctrlCakes.homelist);
 router.get('/gifts', ctrlGifts.gifts);
 router.get('/surprise', ctrlSurprise.surprise);
 router.get('/cakes', ctrlCakes.cakeInfo);
 router.get('/ourAnniversary', ctrlOurAnniversary.ourAnniversary);
-router.get('/cake/review/new', ctrlCakes.addReview);
+router.get('/cakes/review/new', ctrlCakes.addReview);
 /* Other pages */
 router.get('/about', ctrlOthers.about);
 module.exports = router;
