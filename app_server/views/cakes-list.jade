@@ -1,100 +1,27 @@
 extends layout
 
+include _includes/sharedHTMLfunctions
+
 block content
   .row.banner
     .col-12
-      h1 Candy Cakes
-        small &nbsp;Cakes near me!
-  .row
-    .col-12.col-md-8
-      .card
-        .card-block
-          h4
-            a(href="/cakes")  Birthday Cakes
-            small &nbsp;
-              i.fas.fa-star
-              i.fas.fa-star
-              i.fas.fa-star
-              i.far.fa-star
-              i.far.fa-star
-            span.badge.badge-pill.badge-default.float-right 100m
-          p.address Candy Creams
-          p.facilities
-            span.badge.badge-warning Smells are free! 
-            span.badge.badge-warning Crazy with Cakes!
-            span.badge.badge-warning Age Gracefully!
-    .col-12.col-md-4
-      p.lead Enjoy with your friends and lovers by sharing these luscious tempting cakes!       
-  .row
-    .col-12.col-md-8
-      .card
-        .card-block
-          h4
-            a(href="/cakes")  Valentines Cakes
-            small &nbsp;
-              i.fas.fa-star
-              i.fas.fa-star
-              i.fas.fa-star
-              i.far.fa-star
-              i.far.fa-star
-            span.badge.badge-pill.badge-default.float-right 400m
-          p.address Forever us!
-          p.facilities
-            span.badge.badge-warning Nice and Big! 
-            span.badge.badge-warning Appreciate true love!
-            span.badge.badge-warning Kiss and share!
-  .row
-    .col-12.col-md-8
-      .card
-        .card-block
-          h4
-            a(href="/cakes")  Anniversary Cakes
-            small &nbsp;
-              i.fas.fa-star
-              i.fas.fa-star
-              i.fas.fa-star
-              i.far.fa-star
-              i.far.fa-star
-            span.badge.badge-pill.badge-default.float-right 150m
-          p.address How it was!
-          p.facilities
-            span.badge.badge-warning We used to be! 
-            span.badge.badge-warning Crazy in love!
-            span.badge.badge-warning Can we just go back!
-  .row
-    .col-12.col-md-8
-      .card
-        .card-block
-          h4
-            a(href="/cakes")  Wedding Cakes
-            small &nbsp;
-              i.fas.fa-star
-              i.fas.fa-star
-              i.fas.fa-star
-              i.far.fa-star
-              i.far.fa-star
-            span.badge.badge-pill.badge-default.float-right 250m
-          p.address Will you promise!
-          p.facilities
-            span.badge.badge-warning Sharing this cake! 
-            span.badge.badge-warning With you baby!
-            span.badge.badge-warning I love you!
-  .row
-    .col-12.col-md-8
-      .card
-        .card-block
-          h4
-            a(href="/cakes")  Home Coming!
-            small &nbsp;
-              i.fas.fa-star
-              i.fas.fa-star
-              i.fas.fa-star
-              i.far.fa-star
-              i.far.fa-star
-            span.badge.badge-pill.badge-default.float-right 122m
-          p.address Welcome little one!
-          p.facilities
-            span.badge.badge-warning Our Princess! 
-            span.badge.badge-warning Our Prince!
-            span.badge.badge-warning Welcome little one!         
+      h1= pageHeader.title
+        small &nbsp;#{pageHeader.strapLine}
   
+  .row
+    .col-12.col-md-8
+      each cake in cakes
+        .card
+          .card-block
+            h4
+              a(href='/cake')= cake.name
+              +outputRating(cake.rating)
+              span.badge.badge-pill.badge-default.float-right= cake.distance
+            p.subdef= cake.subdef
+            .qualities
+              each quality in cake.qualities
+                span.badge.badge-warning= quality
+    
+    
+    .col-12.col-md-4 
+      p.lead= sidebar
